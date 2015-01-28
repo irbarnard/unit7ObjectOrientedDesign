@@ -1,5 +1,4 @@
 
-
 /**
  * Write a description of class ComboLock here.
  * 
@@ -8,35 +7,77 @@
  */
 public class ComboLock
 {
-   private static final int SECRET1 = 10;
-   private static final int SECRET2 = 20;
-   private static final int SECRET3 = 30;
-   private int[] dial;
-   //turn left from 0; turn right one full turn from current number and land on the second number; turn left and land on the third number
-   public ComboLock( int secret1, int secret2, int secret3 ) 
-   { 
-     this.secret1 = secret1;
-     this.secret2 = secret2;
-     this.secret3 = secret3;
-    
-   }
-   public void reset() 
-   {     
-    
-    
-   }
-   public void turnLeft( int ticks ) 
-   { 
+    private int[] dial;
+    private int lr = 0;
+    int currentNum = 0;
+    int numLocksOpened = 0;
+    int num1;
+    int num2;
+    int num3;
+    // turn left = adding , turn right = subtracting from the number
+    public ComboLock( int secret1, int secret2, int secret3, int[] dial ) 
+    { 
+        num1 = secret1;
+        num2 = secret2;
+        num3 = secret3;
         
-    
-   }
-   public void turnRight( int ticks ) 
-   {
-    
-    
-   }
-   public boolean open() 
-   { 
-    
-   }
+        for( int i = 0; i < 39; i++ )
+        {
+            dial[i] = i;
+        }
+    }
+
+    public void reset() 
+    {  
+        currentNum = 0;
+        lr = 0;
+    }
+
+    public void turnLeft( int ticks ) 
+    { 
+        if( currentNum + ticks > 39 )
+        {
+            currentNum = (currentNum+ticks)-39;
+            lr+=1;
+        }
+        checkLocksOpened();
+    }
+
+    public void turnRight( int ticks ) 
+    {
+        if( currentNum + ticks < 0 )
+        {
+            currentNum = (currentNum-ticks)+39;
+            lr -= 1;
+        }
+        checkLocksOpened();
+    }
+
+    public void checkLocksOpened()
+    {
+        if( (numLocksOpened == 0 && lr == -1) && currentNum == num1 )
+        {
+            numLocksOpened += 1;
+        }
+        else if( (numLocksOpened == 1 && lr == 0) && currentNum == num2 )
+        {
+            numLocksOpened += 1;
+        }
+        else if( (numLocksOpened == 2 && lr == -1) && currentNum == num3 )
+        {
+            numLocksOpened += 1;
+        }
+    }
+
+    public boolean open() 
+    { 
+        if( numLocksOpened == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
