@@ -1,4 +1,5 @@
 import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -6,16 +7,14 @@ import javax.swing.JComponent;
 //listener
 public class TriangleComponent extends JComponent
 {
-    Point2D.Double point1 = new Point2D.Double();
-    Point2D.Double point2 = new Point2D.Double();
-    Point2D.Double point3 = new Point2D.Double();
+    
     public void paintComponent(Graphics g)
     {
-        
+     
         Graphics2D g2 = (Graphics2D) g;
         
-        TrianglePieces tp = new TrianglePieces();
-        tp.draw(g2);
+        
+        g2.draw(tp);
         MouseListener listener = new ClickListener();
         
     }
@@ -27,6 +26,7 @@ public class TriangleComponent extends JComponent
            int x = event.getX();
            int y = event.getY();
            
+
         }
         
     }

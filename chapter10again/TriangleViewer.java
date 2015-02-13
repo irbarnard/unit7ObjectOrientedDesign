@@ -1,10 +1,5 @@
 import javax.swing.JFrame;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+
 public class TriangleViewer
 {
     private static final int FRAME_WIDTH = 500;
