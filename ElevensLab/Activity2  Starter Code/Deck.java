@@ -31,6 +31,11 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		// determine the suit when i = a certain number
+		for (int i = 0; i < suits.length; i ++)
+		{
+		    
+		}
 	}
 
 
@@ -39,7 +44,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */ 
 	}
 
 	/**
