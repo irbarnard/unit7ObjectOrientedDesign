@@ -63,7 +63,6 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		Shuffler.selectionShuffle(Card[] cards)
 	}
 
 	/**

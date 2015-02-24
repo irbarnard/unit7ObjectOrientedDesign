@@ -81,8 +81,8 @@ public class Deck {
     public Card deal() {
         if (cards.isEmpty()!= true)
         {
-            Card dealt = cards.get(size);
-            size = size-1;
+            Card dealt = cards<size>;
+            size--;
             return dealt;
         }
         else
